@@ -124,7 +124,7 @@ export async function getStaticPaths() {
 
   return {
     paths: products.map((product) => ({
-      params: { slug: product.properties.Slug.rich_text[0].plain_text },
+      params: { slug: product.properties.Slug.rich_text.map(textObj => textObj.plain_text).join('') },
     })),
     fallback: false,
   };
