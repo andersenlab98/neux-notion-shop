@@ -50,7 +50,7 @@ Links to files hosted by Notion will expire, so use the `Image URL` property if 
 
 ### 5. Deploy to Vercel with one click
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FFoxy%2Ffoxy-notion-example-site&env=NOTION_TOKEN,NOTION_DATABASE_ID,NEXT_PUBLIC_FOXY_SUBDOMAIN)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2foreveryh%2Fneux-notion-shop&env=NOTION_TOKEN,NOTION_DATABASE_ID,NEXT_PUBLIC_FOXY_SUBDOMAIN)
 
 ## 🏗 Want to get your hands dirty?
 
