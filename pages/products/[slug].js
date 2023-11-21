@@ -124,10 +124,14 @@ export async function getStaticPaths() {
 
   return {
     paths: products.map((product) => {
-      // 确保 Slug 属性存在，并且 rich_text 数组非空
-      const slugText = product.properties.Slug && product.properties.Slug.rich_text.length > 0
+      // 打印 product 的结构以检查 Slug 属性
+      console.log(product);
+      // 检查 Slug 属性的 rich_text 数组是否存在、非空，并且其第一个元素含有 plain_text 属性
+      const slugText = product.properties.Slug &&
+                       product.properties.Slug.rich_text.length > 0 &&
+                       product.properties.Slug.rich_text[0].plain_text !== undefined
         ? product.properties.Slug.rich_text[0].plain_text
-        : 'default-slug'; // 提供一个默认值，以防 slug 为空
+        : 'default-slug'; // 如果不存在，则使用默认值
 
       return { params: { slug: slugText } };
     }),
