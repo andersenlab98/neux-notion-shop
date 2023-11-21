@@ -123,9 +123,14 @@ export async function getStaticPaths() {
   const products = await getAllProducts();
 
   return {
-    paths: products.map((product) => ({
-      params: { slug: product.properties.Slug.rich_text.map(textObj => textObj.plain_text).join('') },
-    })),
+    paths: products.map((product) => {
+      // 确保 Slug 属性存在，并且 rich_text 数组非空
+      const slugText = product.properties.Slug && product.properties.Slug.rich_text.length > 0
+        ? product.properties.Slug.rich_text[0].plain_text
+        : 'default-slug'; // 提供一个默认值，以防 slug 为空
+
+      return { params: { slug: slugText } };
+    }),
     fallback: false,
   };
 }
