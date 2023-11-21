@@ -37,9 +37,12 @@ export default function ProductDetails({ product, foxyForm, otherProducts }) {
             </div>
           </div>
           <p className="text-gray-500 mt-6">
-            {product.Description.rich_text[0].plain_text}
+          {
+            product.Description && product.Description.rich_text.length > 0
+              ? product.Description.rich_text[0].plain_text
+              : "No description"
+          }
           </p>
-
           <div dangerouslySetInnerHTML={{ __html: foxyForm }}></div>
 
           {product.Inventory.number < 5 && (
