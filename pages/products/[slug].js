@@ -125,7 +125,6 @@ export async function getStaticPaths() {
   return {
     paths: products.map((product) => {
       // 打印 product 的结构以检查 Slug 属性
-      console.log(product.properties.Slug);
       console.log(product.properties.Slug.rich_text[0])
       // 检查 Slug 属性的 rich_text 数组是否存在、非空，并且其第一个元素含有 plain_text 属性
       const slugText = product.properties.Slug &&
@@ -133,7 +132,7 @@ export async function getStaticPaths() {
                        product.properties.Slug.rich_text[0].plain_text !== undefined
         ? product.properties.Slug.rich_text[0].plain_text
         : 'default-slug'; // 如果不存在，则使用默认值
-
+      console.log(slugText)
       return { params: { slug: slugText } };
     }),
     fallback: false,
